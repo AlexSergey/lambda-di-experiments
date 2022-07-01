@@ -3,15 +3,15 @@ interface Authentication {
   auth: string;
 }
 
-interface Data {
+export interface CreateData {
   keys: string;
 }
 
-export interface ReadEventInterface {
+export interface CreateEventInterface {
   type: string;
   applicationName: string;
   description: string;
   url: string;
   authentication: Authentication;
-  data: Data;
+  data: CreateData;
 }

@@ -2,7 +2,7 @@
   "name": "serverless",
   "version": "1.0.0",
   "description": "",
-  "main": "src/functions/read.handler.ts",
+  "main": "src/functions/read/read.handler.ts",
   "scripts": {
     "start": "serverless offline start",
     "test": "jest"
@@ -11,19 +11,21 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "reflect-metadata": "^0.1.13",
+    "aws-lambda": "^1.0.7",
+    "class-transformer": "^0.5.1",
+    "class-validator": "^0.13.2",
     "inversify": "^6.0.1",
-    "aws-lambda": "^1.0.7"
+    "reflect-metadata": "^0.1.13"
   },
   "devDependencies": {
+    "@types/aws-lambda": "^8.10.101",
     "@types/jest": "^27.4.1",
     "jest": "^27.5.1",
-    "ts-jest": "^27.1.4",
-    "@types/aws-lambda": "^8.10.101",
     "serverless": "^3.19.0",
     "serverless-offline": "^8.8.0",
     "serverless-plugin-typescript": "^2.1.2",
-    "typescript": "^4.7.4",
-    "ts-node": "^10.8.1"
+    "ts-jest": "^27.1.4",
+    "ts-node": "^10.8.1",
+    "typescript": "^4.7.4"
   }
 }

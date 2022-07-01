@@ -1,3 +1,4 @@
 ### Invoke
 
-serverless invoke local --function read --path ../invoke-data/read.json
+serverless invoke local --function read
+serverless invoke local --function create --path ../invoke-data/create.json

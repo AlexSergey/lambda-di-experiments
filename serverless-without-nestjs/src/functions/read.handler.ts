@@ -1,10 +1,10 @@
-'use strict';
+import 'reflect-metadata';
 import { injectable, inject } from 'inversify';
 import { APIGatewayProxyResult } from 'aws-lambda';
 import { CrudService } from '../crud/crud.service';
 import { ReadEventInterface } from '../types/read-event.interface';
 import { APP_DI_TYPES } from '../app/app.di-types';
-import { LambdaBaseClass, LambdaInterface, createLambda } from './core';
+import { LambdaBaseClass, LambdaInterface } from './core';
 
 @injectable()
 export class ReadHandler extends LambdaBaseClass implements LambdaInterface {
@@ -15,10 +15,7 @@ export class ReadHandler extends LambdaBaseClass implements LambdaInterface {
   }
 
   async execute(event: ReadEventInterface): Promise<APIGatewayProxyResult> {
-    console.log('data', event);
+    console.log('event', event);
     return this.ok(this.crudService.read());
   }
 }
-
-
-export default createLambda(ReadHandler)

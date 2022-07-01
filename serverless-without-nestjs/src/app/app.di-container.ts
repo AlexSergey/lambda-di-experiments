@@ -1,6 +1,8 @@
 import { Container } from 'inversify';
 
-import { appBindings } from './app.di-bindings';
+import { servicesBinding } from './app.di-binding';
+import { handlersBinding } from './app.di-binding';
 
 export const appDiContainer = new Container();
-appDiContainer.load(appBindings);
+appDiContainer.load(servicesBinding);
+appDiContainer.load(handlersBinding);

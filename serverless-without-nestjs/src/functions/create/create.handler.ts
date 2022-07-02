@@ -16,8 +16,13 @@ export class CreateHandler extends LambdaBaseClass implements LambdaInterface {
     super();
   }
 
+  async initialize() {
+    // ... init mongodb, external services
+  }
+
   @validation(CreateDto)
   async execute(event: CreateEventInterface): Promise<APIGatewayProxyResult> {
+    await this.initialize();
     try {
       await this.crudService.create(event.data);
       return this.ok('saved');

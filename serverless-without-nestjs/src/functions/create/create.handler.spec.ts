@@ -17,7 +17,7 @@ describe('Create lambda test. Positive cases', () => {
   }
 
   const mockedService = new ContainerModule((bind: interfaces.Bind) => {
-    bind<MockSuccessCrud>(APP_DI_TYPES.CrudService).to(MockSuccessCrud).inSingletonScope();
+    bind<CrudService>(APP_DI_TYPES.CrudService).to(MockSuccessCrud).inSingletonScope();
   });
 
   beforeAll(() => {
@@ -54,7 +54,7 @@ describe('Create lambda test. Negative cases', () => {
     }
 
     const mockedService = new ContainerModule((bind: interfaces.Bind) => {
-      bind<MockFailCrud>(APP_DI_TYPES.CrudService).to(MockFailCrud).inSingletonScope();
+      bind<CrudService>(APP_DI_TYPES.CrudService).to(MockFailCrud).inSingletonScope();
     });
 
     beforeAll(() => {

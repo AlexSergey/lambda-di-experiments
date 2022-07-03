@@ -1,0 +1,15 @@
+{
+  "body": {
+    "type": "message",
+    "applicationName": "E2E Test Subscriber for replay",
+    "description": "Used to test replay of expired messages",
+    "url": "https://urltoservice.com/test/e2e-replay",
+    "authentication": {
+      "type": "basic",
+      "auth": "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXY"
+    },
+    "data": {
+      "keys": "test.de.email.webhook.replay"
+    }
+  }
+}

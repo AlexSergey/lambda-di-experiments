@@ -16,7 +16,6 @@ export class ReadHandler extends LambdaBaseClass implements LambdaInterface {
   }
 
   async execute(): Promise<APIGatewayProxyResult> {
-    console.log('fire');
     try {
       await this.connectorService.connect();
     } catch (e) {

@@ -23,7 +23,6 @@ export class ConnectorService {
         await this.databaseService.connect();
         this.services.databaseService = Statuses.connected;
       } catch (e) {
-        console.log(e);
         this.services.databaseService = Statuses.failed;
         throw new Error('Database connection failed');
       }

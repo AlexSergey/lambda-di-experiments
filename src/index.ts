@@ -5,4 +5,5 @@ import { appDiContainer } from './app/app.di-container';
 
 const read = createLambda(ReadHandler, appDiContainer);
 const create = createLambda(CreateHandler, appDiContainer);
+
 export { create, read };

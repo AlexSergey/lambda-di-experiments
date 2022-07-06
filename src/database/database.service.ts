@@ -1,15 +1,14 @@
-import * as sqlite3 from 'better-sqlite3';
 import { injectable } from 'inversify';
 
 @injectable()
 export class DatabaseService {
-  db: sqlite3.Database;
+  db: {};
 
   async connect() {
-    this.db = sqlite3(':memory:');
+    this.db = {};
   }
 
-  getDatabase(): sqlite3.Database {
+  getDatabase(): {} {
     return this.db;
   }
 }

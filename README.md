@@ -1,3 +1,5 @@
+Lambda functions with serverless and inversify.js
+
 ### Invoke
 
 ```shell

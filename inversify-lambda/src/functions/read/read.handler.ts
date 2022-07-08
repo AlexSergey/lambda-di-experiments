@@ -3,7 +3,8 @@ import { injectable, inject } from 'inversify';
 import { APIGatewayProxyResult } from 'aws-lambda';
 import { CrudService } from '../../crud/crud.service';
 import { APP_DI_TYPES } from '../../app/app.di-types';
-import { LambdaBaseClass, LambdaInterface } from '../core';
+import { LambdaBaseClass } from '../core/lambda-base.class';
+import { LambdaInterface } from '../core/interfaces';
 import { ConnectorService } from '../../connector/connector.service';
 
 @injectable()

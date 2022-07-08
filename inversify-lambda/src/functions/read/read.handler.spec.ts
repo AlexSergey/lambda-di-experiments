@@ -1,4 +1,4 @@
-import { createLambda } from '../core';
+import { createLambda } from '../core/create-lambda';
 import { appDiContainer } from '../../app/app.di-container';
 import { ReadHandler } from './read.handler';
 

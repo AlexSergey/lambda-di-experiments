@@ -1,4 +1,8 @@
-Lambda functions with serverless and inversify.js
+# Lambda Experiments
+
+- Lambda + inversify
+- Lambda + nestjs
+- Simple lambda function with simple DI
 
 ### Invoke
 

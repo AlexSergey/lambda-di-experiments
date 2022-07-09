@@ -1,4 +1,3 @@
-import 'reflect-metadata';
 import { injectable, inject } from 'inversify';
 import { APIGatewayProxyResult } from 'aws-lambda';
 import { CrudService } from '../../crud/crud.service';

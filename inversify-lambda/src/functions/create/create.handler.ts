@@ -1,4 +1,3 @@
-import 'reflect-metadata';
 import { inject, injectable } from 'inversify';
 import { APIGatewayProxyResult, APIGatewayEvent } from 'aws-lambda';
 import { CrudService } from '../../crud/crud.service';
@@ -26,7 +25,9 @@ export class CreateHandler extends LambdaBaseClass implements LambdaInterface {
     } catch (e) {
       return this.fail(e.message);
     }
+
     const body = this.bodyParser<CreateEventInterface>(event);
+
     try {
       await this.crudService.create(body.data);
       return this.ok('saved');

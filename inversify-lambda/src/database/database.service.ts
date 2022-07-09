@@ -2,13 +2,13 @@ import { injectable } from 'inversify';
 
 @injectable()
 export class DatabaseService {
-  db: {};
+  db: Record<string, string> = {};
 
   async connect() {
     this.db = {};
   }
 
-  getDatabase(): {} {
+  getDatabase(): Record<string, string> {
     return this.db;
   }
 }

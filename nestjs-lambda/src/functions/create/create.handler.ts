@@ -19,7 +19,15 @@ export class CreateHandler extends LambdaBaseClass implements LambdaInterface {
   }
 
   async execute(event: APIGatewayEvent): Promise<APIGatewayProxyResult> {
-    const dto: CreateDto = plainToInstance(CreateDto, event.body);
+    try {
+      await this.connectorService.connect();
+    } catch (e) {
+      return this.fail(e.message);
+    }
+
+    const body = this.bodyParser<CreateEventInterface>(event);
+
+    const dto: CreateDto = plainToInstance(CreateDto, body);
 
     try {
       await validateOrReject(dto);
@@ -32,12 +40,6 @@ export class CreateHandler extends LambdaBaseClass implements LambdaInterface {
         return this.fail(errorsData);
       }
     }
-    try {
-      await this.connectorService.connect();
-    } catch (e) {
-      return this.fail(e.message);
-    }
-    const body = this.bodyParser<CreateEventInterface>(event);
     try {
       await this.crudService.create(body.data);
       return this.ok('saved');

@@ -1,6 +1,6 @@
 import { databaseService as _databaseService } from '../../database/database.service';
 import { connectorService as _connectorService } from '../../connector/connector.service';
-import { CrudServiceInterface } from '../../crud/crud.service';
+import { CreateServiceType } from '../../crud/create.service';
 
 import { createHandler } from './create.handler';
 import { CreateData } from '../../types/create-event.interface';
@@ -13,16 +13,11 @@ const connectorService = _connectorService(databaseService);
 describe('Create lambda test. Positive cases', () => {
   let create;
   beforeAll(() => {
-    const crudService: CrudServiceInterface = {
-      async create(data: CreateData): Promise<boolean> {
-        return true;
-      },
-      read(): Promise<string> {
-        return Promise.resolve('');
-      }
+    const createService: CreateServiceType = async () => {
+      return true;
     };
 
-    create = createHandler(crudService, connectorService);
+    create = createHandler(createService, connectorService);
   })
 
   it('Create data. Get 200 ok result with saved message', async () => {
@@ -39,17 +34,12 @@ describe('Create lambda test. Positive cases', () => {
 describe('Create lambda test. Negative cases', () => {
   let create;
   beforeAll(() => {
-    const crudService: CrudServiceInterface = {
-      async create(data: CreateData): Promise<boolean> {
-        throw new Error('Something went wrong');
-        return false;
-      },
-      read(): Promise<string> {
-        return Promise.resolve('');
-      }
+    const createService: CreateServiceType = async () => {
+      throw new Error('Something went wrong');
+      return false;
     };
 
-    create = createHandler(crudService, connectorService);
+    create = createHandler(createService, connectorService);
   });
 
   describe('Create lambda test. Save errors', () => {

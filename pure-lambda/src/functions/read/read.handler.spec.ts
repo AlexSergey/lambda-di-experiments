@@ -1,14 +1,14 @@
 import { databaseService as _databaseService } from '../../database/database.service';
 import { connectorService as _connectorService } from '../../connector/connector.service';
-import { crudService as _crudService } from '../../crud/crud.service';
+import { readService as _readService } from '../../crud/read.service';
 
 import { readHandler } from './read.handler';
 
 const databaseService = _databaseService();
 const connectorService = _connectorService(databaseService);
-const crudService = _crudService(databaseService);
+const readService = _readService(databaseService);
 
-const read = readHandler(crudService, connectorService);
+const read = readHandler(readService, connectorService);
 
 describe('Read lambda test. Positive cases', () => {
   it('Read data. Get list of items', async () => {

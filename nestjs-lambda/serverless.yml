@@ -65,14 +65,14 @@ provider:
 
 functions:
   read:
-    handler: src/index.read
+    handler: src/functions/read/read.index.default
     events:
       - http:
           path: read
           method: get
           cors: true
   create:
-    handler: src/index.create
+    handler: src/functions/create/create.index.default
     events:
       - http:
           path: create
